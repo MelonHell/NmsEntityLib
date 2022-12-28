@@ -1,12 +1,8 @@
 plugins {
     kotlin("jvm") version "1.7.20"
-    `maven-publish`
     id("com.github.johnrengelman.shadow") version "7.1.2"
     id("net.minecrell.plugin-yml.bukkit") version "0.5.2"
 }
-
-group = "ru.melonhell"
-version = "1.0-SNAPSHOT"
 
 bukkit {
     name = "NmsEntityLib"
@@ -23,6 +19,9 @@ bukkit {
 
 allprojects {
     apply(plugin = "kotlin")
+
+    group = "ru.melonhell"
+    version = "1.0-SNAPSHOT"
 
     repositories {
         mavenCentral()
@@ -57,7 +56,6 @@ project(":nms").subprojects.forEach {
     }
 }
 
-
 tasks {
     shadowJar {
         relocate("co.aikar.commands", "ru.melonhell.nmsentitylib.libs.aikar.commands")
@@ -71,8 +69,4 @@ tasks {
     jar {
         enabled = false
     }
-    withType<GenerateModuleMetadata> {
-        enabled = false
-    }
 }
-
