@@ -4,7 +4,6 @@ import co.aikar.commands.BaseCommand
 import co.aikar.commands.PaperCommandManager
 import org.springframework.beans.factory.config.BeanPostProcessor
 import org.springframework.context.annotation.Configuration
-import org.springframework.stereotype.Component
 
 @Configuration
 open class CommandBeanPostProcessor(

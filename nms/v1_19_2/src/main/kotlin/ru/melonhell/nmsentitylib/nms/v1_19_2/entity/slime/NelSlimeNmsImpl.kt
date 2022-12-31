@@ -2,12 +2,14 @@ package ru.melonhell.nmsentitylib.nms.v1_19_2.entity.slime
 
 import net.minecraft.nbt.CompoundTag
 import net.minecraft.network.protocol.game.ClientboundTeleportEntityPacket
+import net.minecraft.world.entity.Entity
 import net.minecraft.world.entity.EntityType
 import net.minecraft.world.entity.monster.Slime
 import net.minecraft.world.level.Level
 import org.bukkit.Bukkit
 import org.bukkit.craftbukkit.v1_19_R1.CraftServer
 import org.bukkit.plugin.java.JavaPlugin
+import ru.melonhell.nmsentitylib.EntitySaveService
 import ru.melonhell.nmsentitylib.app.NmsEntityLibPlugin
 import ru.melonhell.nmsentitylib.entity.base.NelEntityNms
 import ru.melonhell.nmsentitylib.nms.v1_19_2.utils.ReflectionUtils.broadcast
@@ -18,13 +20,17 @@ class NelSlimeNmsImpl(
     world: Level,
     x: Double,
     y: Double,
-    z: Double
+    z: Double,
+    private val saveService: EntitySaveService
 ) : Slime(EntityType.SLIME, world), NelEntityNms {
     init {
         setPos(x, y, z)
     }
 
-    override fun save(nbt: CompoundTag) = false
+    override fun save(nbt: CompoundTag): Boolean {
+        saveService.save(bukkitEntity)
+        return true
+    }
 
     override fun tick() = Unit
 
@@ -42,4 +48,11 @@ class NelSlimeNmsImpl(
         set(value) = tracker?.let { it.serverEntity.updateInterval = value } ?: Unit
     override val passengersOffset: Double
         get() = passengersRidingOffset
+
+    override fun load() {
+        if (removalReason == RemovalReason.UNLOADED_TO_CHUNK) {
+            unsetRemoved()
+            level.addFreshEntity(this as Entity, this.spawnReason)
+        }
+    }
 }

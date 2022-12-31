@@ -4,24 +4,29 @@ import co.aikar.commands.BaseCommand
 import co.aikar.commands.annotation.CommandAlias
 import co.aikar.commands.annotation.Default
 import co.aikar.commands.annotation.Subcommand
+import org.bukkit.Bukkit
 import org.bukkit.entity.EntityType
 import org.bukkit.entity.Player
+import org.bukkit.plugin.java.JavaPlugin
 import org.springframework.stereotype.Component
 import ru.melonhell.nmsentitylib.entity.base.NelEntityBukkit
 
 @Component
 @CommandAlias("nel")
 class NmsEntityLibCommand(
-    private val nmsEntityLib: NmsEntityLib
+    private val nmsEntityLib: NmsEntityLib,
+    private val javaPlugin: JavaPlugin
 ) : BaseCommand() {
 
-    var last: NelEntityBukkit? = null
+    private var last: NelEntityBukkit? = null
 
     @Subcommand("spawn")
     fun spawn(player: Player, @Default("armor_stand") type: String) {
-        val entityType = EntityType.valueOf(type.uppercase())
-        player.sendMessage("entityType $entityType")
-        last = nmsEntityLib.spawnEntity(player.location, entityType)
+        Bukkit.getScheduler().runTaskAsynchronously(javaPlugin, Runnable {
+            val entityType = EntityType.valueOf(type.uppercase())
+            last = nmsEntityLib.spawnEntity(player.location, entityType)
+        })
+
     }
 
     @Subcommand("stress")
