@@ -21,7 +21,7 @@ allprojects {
     apply(plugin = "kotlin")
 
     group = "ru.melonhell"
-    version = "1.0-SNAPSHOT"
+    version = "1.0.1"
 
     repositories {
         mavenCentral()
