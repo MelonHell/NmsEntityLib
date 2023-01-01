@@ -27,10 +27,10 @@ abstract class AbstractNelEntityFactory(
     ): NelEntityBukkit {
         val nmsWorld = (world as CraftWorld).handle
         val entity = createNms(nmsWorld, vector.x, vector.y, vector.z, saveService)
-        entity.updateInterval = Int.MAX_VALUE
         val bukkitEntity = entity.getBukkitEntity()
         function.accept(bukkitEntity)
-        schedulerUtils.runSync { nmsWorld.addFreshEntity(entity as Entity, reason) }
+        nmsWorld.addFreshEntity(entity as Entity, reason)
+        entity.updateInterval = Int.MAX_VALUE
         return bukkitEntity
     }
 }

@@ -41,7 +41,6 @@ class NelArmorStandNmsImpl(
         Bukkit.getScheduler().runTask(JavaPlugin.getPlugin(NmsEntityLibPlugin::class.java), Runnable {
             super.moveTo(x, y, z, yaw, pitch)
         })
-        passengersOffset
         tracker?.serverEntity?.broadcast?.accept(ClientboundTeleportEntityPacket(this))
     }
 

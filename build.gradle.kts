@@ -40,7 +40,7 @@ allprojects {
         compileOnly("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.7.20")
         compileOnly("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
         compileOnly("org.jetbrains.kotlinx:kotlinx-coroutines-jdk8:1.6.4")
-        compileOnly("ru.spliterash:spring-spigot:1.0.5")
+        compileOnly("ru.spliterash:spring-spigot:1.0.6")
     }
 }
 
