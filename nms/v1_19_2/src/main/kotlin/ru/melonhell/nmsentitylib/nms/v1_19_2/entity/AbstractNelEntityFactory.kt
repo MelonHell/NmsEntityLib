@@ -31,7 +31,6 @@ abstract class AbstractNelEntityFactory(
         function.accept(bukkitEntity)
         nmsWorld.addFreshEntity(entity as Entity, reason)
         entity.updateInterval = Int.MAX_VALUE
-        entity.init()
         return bukkitEntity
     }
 }

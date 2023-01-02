@@ -28,6 +28,7 @@ class NelArmorStandNmsImpl(
     private val bukkit = NelArmorStandBukkitImpl(Bukkit.getServer() as CraftServer, this)
 
     init {
+        canTick = false
         setPos(x, y, z)
     }
 
@@ -37,10 +38,6 @@ class NelArmorStandNmsImpl(
 
     override fun shouldBeSaved() = false
     override fun save(nbt: CompoundTag) = false
-    override fun tick() {
-        updatePose()
-        detectEquipmentUpdates()
-    }
 
     override fun moveTo(x: Double, y: Double, z: Double, yaw: Float, pitch: Float) {
         Bukkit.getScheduler().runTask(JavaPlugin.getPlugin(NmsEntityLibPlugin::class.java), Runnable {
