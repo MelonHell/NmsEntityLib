@@ -6,6 +6,7 @@ import net.minecraft.world.entity.Entity
 import net.minecraft.world.entity.EntityType
 import net.minecraft.world.entity.decoration.ArmorStand
 import net.minecraft.world.level.Level
+import net.minecraft.world.level.entity.EntityInLevelCallback
 import org.bukkit.Bukkit
 import org.bukkit.craftbukkit.v1_19_R1.CraftServer
 import org.bukkit.plugin.java.JavaPlugin
@@ -14,7 +15,6 @@ import ru.melonhell.nmsentitylib.app.NmsEntityLibPlugin
 import ru.melonhell.nmsentitylib.entity.base.NelEntityNms
 import ru.melonhell.nmsentitylib.nms.v1_19_2.utils.ProxiedEntityLevelCallback
 import ru.melonhell.nmsentitylib.nms.v1_19_2.utils.ReflectionUtils.broadcast
-import ru.melonhell.nmsentitylib.nms.v1_19_2.utils.ReflectionUtils.levelCallback
 import ru.melonhell.nmsentitylib.nms.v1_19_2.utils.ReflectionUtils.serverEntity
 import ru.melonhell.nmsentitylib.nms.v1_19_2.utils.ReflectionUtils.updateInterval
 
@@ -31,9 +31,8 @@ class NelArmorStandNmsImpl(
         setPos(x, y, z)
     }
 
-    override fun init() {
-        val originalLevelCallback = levelCallback
-        setLevelCallback(ProxiedEntityLevelCallback(originalLevelCallback, this, saveService))
+    override fun setLevelCallback(changeListener: EntityInLevelCallback) {
+        super.setLevelCallback(ProxiedEntityLevelCallback(changeListener, this, saveService))
     }
 
     override fun shouldBeSaved() = false

@@ -3,8 +3,6 @@ package ru.melonhell.nmsentitylib.nms.v1_19_2.utils
 import net.minecraft.network.protocol.Packet
 import net.minecraft.server.level.ChunkMap
 import net.minecraft.server.level.ServerEntity
-import net.minecraft.world.entity.Entity
-import net.minecraft.world.level.entity.EntityInLevelCallback
 import java.util.function.Consumer
 
 @Suppress("UNCHECKED_CAST")
@@ -27,12 +25,4 @@ object ReflectionUtils {
     var ServerEntity.broadcast: Consumer<Packet<*>>
         get() = broadcastField.get(this) as Consumer<Packet<*>>
         set(value) = broadcastField.set(this, value)
-
-    val Entity.levelCallback: EntityInLevelCallback
-        get() {
-            val field = Entity::class.java.getDeclaredField("aR")
-                .apply { isAccessible = true }
-
-            return field.get(this) as EntityInLevelCallback
-        }
 }
