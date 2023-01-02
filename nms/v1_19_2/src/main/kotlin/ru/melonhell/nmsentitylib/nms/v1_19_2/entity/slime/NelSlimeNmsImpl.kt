@@ -12,7 +12,9 @@ import org.bukkit.plugin.java.JavaPlugin
 import ru.melonhell.nmsentitylib.EntitySaveService
 import ru.melonhell.nmsentitylib.app.NmsEntityLibPlugin
 import ru.melonhell.nmsentitylib.entity.base.NelEntityNms
+import ru.melonhell.nmsentitylib.nms.v1_19_2.utils.ProxiedEntityLevelCallback
 import ru.melonhell.nmsentitylib.nms.v1_19_2.utils.ReflectionUtils.broadcast
+import ru.melonhell.nmsentitylib.nms.v1_19_2.utils.ReflectionUtils.levelCallback
 import ru.melonhell.nmsentitylib.nms.v1_19_2.utils.ReflectionUtils.serverEntity
 import ru.melonhell.nmsentitylib.nms.v1_19_2.utils.ReflectionUtils.updateInterval
 
@@ -23,14 +25,19 @@ class NelSlimeNmsImpl(
     z: Double,
     private val saveService: EntitySaveService
 ) : Slime(EntityType.SLIME, world), NelEntityNms {
+    private val bukkit = NelSlimeBukkitImpl(Bukkit.getServer() as CraftServer, this)
+
     init {
         setPos(x, y, z)
     }
 
-    override fun save(nbt: CompoundTag): Boolean {
-        saveService.save(bukkitEntity)
-        return true
+    override fun init() {
+        val originalLevelCallback = levelCallback
+        setLevelCallback(ProxiedEntityLevelCallback(originalLevelCallback, this, saveService))
     }
+
+    override fun shouldBeSaved() = false
+    override fun save(nbt: CompoundTag) = false
 
     override fun tick() = Unit
 
@@ -41,7 +48,7 @@ class NelSlimeNmsImpl(
         tracker?.serverEntity?.broadcast?.accept(ClientboundTeleportEntityPacket(this))
     }
 
-    override fun getBukkitEntity() = NelSlimeBukkitImpl(Bukkit.getServer() as CraftServer, this)
+    override fun getBukkitEntity() = bukkit
 
     override var updateInterval
         get() = tracker?.serverEntity?.updateInterval ?: -1
