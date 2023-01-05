@@ -27,13 +27,7 @@ allprojects {
         mavenCentral()
         maven("https://papermc.io/repo/repository/maven-public/")
         maven("https://repo.aikar.co/content/groups/aikar/")
-        maven {
-            url = uri("https://nexus.spliterash.ru/repository/all/")
-            credentials {
-                username = findProperty("SPLITERASH_NEXUS_USR")?.toString()
-                password = findProperty("SPLITERASH_NEXUS_PSW")?.toString()
-            }
-        }
+        maven("https://repo.spliterash.ru/group/")
     }
 
     dependencies {
