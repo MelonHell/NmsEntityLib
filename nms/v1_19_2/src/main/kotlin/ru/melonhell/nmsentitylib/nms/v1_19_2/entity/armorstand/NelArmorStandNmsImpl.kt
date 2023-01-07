@@ -1,7 +1,10 @@
 package ru.melonhell.nmsentitylib.nms.v1_19_2.entity.armorstand
 
 import net.minecraft.nbt.CompoundTag
+import net.minecraft.network.protocol.game.ClientboundSetEntityDataPacket
 import net.minecraft.network.protocol.game.ClientboundTeleportEntityPacket
+import net.minecraft.network.syncher.SynchedEntityData
+import net.minecraft.server.level.ServerEntity
 import net.minecraft.world.entity.Entity
 import net.minecraft.world.entity.EntityType
 import net.minecraft.world.entity.decoration.ArmorStand
@@ -26,6 +29,8 @@ class NelArmorStandNmsImpl(
     private val saveService: EntitySaveService
 ) : ArmorStand(EntityType.ARMOR_STAND, world), NelEntityNms {
     private val bukkit = NelArmorStandBukkitImpl(Bukkit.getServer() as CraftServer, this)
+    private val entityDataStub = SynchedEntityData(this)
+    var metadataHack: Boolean = false
 
     init {
         canTick = false
@@ -43,7 +48,32 @@ class NelArmorStandNmsImpl(
         Bukkit.getScheduler().runTask(JavaPlugin.getPlugin(NmsEntityLibPlugin::class.java), Runnable {
             super.moveTo(x, y, z, yaw, pitch)
         })
-        tracker?.serverEntity?.broadcast?.accept(ClientboundTeleportEntityPacket(this))
+        tracker?.serverEntity?.broadcast?.run {
+            accept(ClientboundTeleportEntityPacket(this@NelArmorStandNmsImpl))
+            if (metadataHack)
+                accept(
+                    ClientboundSetEntityDataPacket(
+                        id,
+                        super.getEntityData(),
+                        true,
+                        true
+                    )
+                )
+        }
+    }
+
+    override fun getEntityData(): SynchedEntityData {
+        if (!metadataHack)
+            return super.getEntityData()
+
+        val trace = Thread.currentThread().stackTrace
+        val stackTraceElement = trace[2]
+
+        val serverEntityClassName = ServerEntity::class.java.name
+        return if (stackTraceElement.className == serverEntityClassName)
+            entityDataStub
+        else
+            super.getEntityData()
     }
 
     override fun getBukkitEntity() = bukkit
