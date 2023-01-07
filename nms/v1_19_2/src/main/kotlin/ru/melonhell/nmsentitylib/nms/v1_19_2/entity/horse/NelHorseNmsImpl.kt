@@ -1,7 +1,10 @@
 package ru.melonhell.nmsentitylib.nms.v1_19_2.entity.horse
 
 import net.minecraft.nbt.CompoundTag
+import net.minecraft.network.protocol.game.ClientboundSetEntityDataPacket
 import net.minecraft.network.protocol.game.ClientboundTeleportEntityPacket
+import net.minecraft.network.syncher.SynchedEntityData
+import net.minecraft.server.level.ServerEntity
 import net.minecraft.world.entity.Entity
 import net.minecraft.world.entity.EntityType
 import net.minecraft.world.entity.animal.horse.Horse
@@ -26,6 +29,8 @@ class NelHorseNmsImpl(
     private val saveService: EntitySaveService
 ) : Horse(EntityType.HORSE, world), NelEntityNms {
     private val bukkit = NelHorseBukkitImpl(Bukkit.getServer() as CraftServer, this)
+    private val emptyEntityData = SynchedEntityData(this)
+    override var disableMetaAutoUpdate: Boolean = false
 
     init {
         setPos(x, y, z)
@@ -47,6 +52,20 @@ class NelHorseNmsImpl(
             super.moveTo(x, y, z, yaw, pitch)
         })
         tracker?.serverEntity?.broadcast?.accept(ClientboundTeleportEntityPacket(this))
+    }
+
+    override fun getEntityData(): SynchedEntityData {
+        if (disableMetaAutoUpdate) {
+            val traceClassName = Thread.currentThread().stackTrace[2].className
+            if (traceClassName == ServerEntity::class.java.name) return emptyEntityData
+        }
+        return super.getEntityData()
+    }
+
+    private val realEntityData: SynchedEntityData get() = super.getEntityData()
+
+    override fun sendMetaChanges() {
+        tracker?.serverEntity?.broadcast?.accept(ClientboundSetEntityDataPacket(id, realEntityData, true, true))
     }
 
     override fun getBukkitEntity() = bukkit

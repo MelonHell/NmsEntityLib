@@ -29,8 +29,8 @@ class NelArmorStandNmsImpl(
     private val saveService: EntitySaveService
 ) : ArmorStand(EntityType.ARMOR_STAND, world), NelEntityNms {
     private val bukkit = NelArmorStandBukkitImpl(Bukkit.getServer() as CraftServer, this)
-    private val entityDataStub = SynchedEntityData(this)
-    var metadataHack: Boolean = false
+    private val emptyEntityData = SynchedEntityData(this)
+    override var disableMetaAutoUpdate: Boolean = false
 
     init {
         canTick = false
@@ -48,32 +48,21 @@ class NelArmorStandNmsImpl(
         Bukkit.getScheduler().runTask(JavaPlugin.getPlugin(NmsEntityLibPlugin::class.java), Runnable {
             super.moveTo(x, y, z, yaw, pitch)
         })
-        tracker?.serverEntity?.broadcast?.run {
-            accept(ClientboundTeleportEntityPacket(this@NelArmorStandNmsImpl))
-            if (metadataHack)
-                accept(
-                    ClientboundSetEntityDataPacket(
-                        id,
-                        super.getEntityData(),
-                        true,
-                        true
-                    )
-                )
-        }
+        tracker?.serverEntity?.broadcast?.accept(ClientboundTeleportEntityPacket(this@NelArmorStandNmsImpl))
     }
 
     override fun getEntityData(): SynchedEntityData {
-        if (!metadataHack)
-            return super.getEntityData()
+        if (disableMetaAutoUpdate) {
+            val traceClassName = Thread.currentThread().stackTrace[2].className
+            if (traceClassName == ServerEntity::class.java.name) return emptyEntityData
+        }
+        return super.getEntityData()
+    }
 
-        val trace = Thread.currentThread().stackTrace
-        val stackTraceElement = trace[2]
+    private val realEntityData: SynchedEntityData get() = super.getEntityData()
 
-        val serverEntityClassName = ServerEntity::class.java.name
-        return if (stackTraceElement.className == serverEntityClassName)
-            entityDataStub
-        else
-            super.getEntityData()
+    override fun sendMetaChanges() {
+        tracker?.serverEntity?.broadcast?.accept(ClientboundSetEntityDataPacket(id, realEntityData, true, true))
     }
 
     override fun getBukkitEntity() = bukkit
