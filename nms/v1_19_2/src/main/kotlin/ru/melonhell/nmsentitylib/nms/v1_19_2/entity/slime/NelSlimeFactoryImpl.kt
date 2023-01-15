@@ -16,9 +16,8 @@ class NelSlimeFactoryImpl(
         nmsWorld: ServerLevel,
         x: Double,
         y: Double,
-        z: Double,
-        saveService: EntitySaveService
-    ) = NelSlimeNmsImpl(nmsWorld, x, y, z, saveService)
+        z: Double
+    ) = NelSlimeNmsImpl(nmsWorld, x, y, z, saveService, schedulerUtils)
 
     override val entityType = EntityType.SLIME
 }

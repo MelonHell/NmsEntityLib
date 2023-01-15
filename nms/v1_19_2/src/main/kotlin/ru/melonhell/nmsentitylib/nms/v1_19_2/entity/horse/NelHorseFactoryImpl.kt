@@ -17,8 +17,7 @@ class NelHorseFactoryImpl(
         x: Double,
         y: Double,
         z: Double,
-        saveService: EntitySaveService
-    ) = NelHorseNmsImpl(nmsWorld, x, y, z, saveService)
+    ) = NelHorseNmsImpl(nmsWorld, x, y, z, saveService, schedulerUtils)
 
     override val entityType = EntityType.HORSE
 }

@@ -14,10 +14,10 @@ import ru.melonhell.nmsentitylib.utils.SchedulerUtils
 import java.util.function.Consumer
 
 abstract class AbstractNelEntityFactory(
-    private val schedulerUtils: SchedulerUtils,
-    private val saveService: EntitySaveService
+    protected val schedulerUtils: SchedulerUtils,
+    protected val saveService: EntitySaveService
 ) : NelEntityFactory {
-    abstract fun createNms(nmsWorld: ServerLevel, x: Double, y: Double, z: Double, saveService: EntitySaveService): NelEntityNms
+    abstract fun createNms(nmsWorld: ServerLevel, x: Double, y: Double, z: Double): NelEntityNms
 
     override fun spawn(
         world: World,
@@ -26,7 +26,7 @@ abstract class AbstractNelEntityFactory(
         function: Consumer<NelEntityBukkit>
     ): NelEntityBukkit {
         val nmsWorld = (world as CraftWorld).handle
-        val entity = createNms(nmsWorld, vector.x, vector.y, vector.z, saveService)
+        val entity = createNms(nmsWorld, vector.x, vector.y, vector.z)
         val bukkitEntity = entity.getBukkitEntity()
         function.accept(bukkitEntity)
         nmsWorld.addFreshEntity(entity as Entity, reason)

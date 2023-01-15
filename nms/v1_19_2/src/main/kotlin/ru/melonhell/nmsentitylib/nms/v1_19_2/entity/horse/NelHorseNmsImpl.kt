@@ -18,14 +18,16 @@ import ru.melonhell.nmsentitylib.nms.v1_19_2.utils.ProxiedEntityLevelCallback
 import ru.melonhell.nmsentitylib.nms.v1_19_2.utils.ReflectionUtils.broadcast
 import ru.melonhell.nmsentitylib.nms.v1_19_2.utils.ReflectionUtils.serverEntity
 import ru.melonhell.nmsentitylib.nms.v1_19_2.utils.ReflectionUtils.updateInterval
+import ru.melonhell.nmsentitylib.utils.SchedulerUtils
 
 class NelHorseNmsImpl(
     world: Level,
     x: Double,
     y: Double,
     z: Double,
-    private val saveService: EntitySaveService
-) : Horse(EntityType.HORSE, world), NelEntityNms {
+    private val saveService: EntitySaveService,
+    private val schedulerUtils: SchedulerUtils,
+    ) : Horse(EntityType.HORSE, world), NelEntityNms {
     private val bukkit = NelHorseBukkitImpl(Bukkit.getServer() as CraftServer, this)
     private val emptyEntityData = SynchedEntityData(this)
     override var disableMetaAutoUpdate: Boolean = false
@@ -35,7 +37,7 @@ class NelHorseNmsImpl(
     }
 
     override fun setLevelCallback(changeListener: EntityInLevelCallback) {
-        super.setLevelCallback(ProxiedEntityLevelCallback(changeListener, this, saveService))
+        super.setLevelCallback(ProxiedEntityLevelCallback(changeListener, this, saveService,schedulerUtils))
     }
 
     override fun shouldBeSaved() = false

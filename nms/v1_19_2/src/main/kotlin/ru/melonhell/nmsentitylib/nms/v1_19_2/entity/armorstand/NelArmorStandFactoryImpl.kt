@@ -16,9 +16,8 @@ class NelArmorStandFactoryImpl(
         nmsWorld: ServerLevel,
         x: Double,
         y: Double,
-        z: Double,
-        saveService: EntitySaveService
-    ) = NelArmorStandNmsImpl(nmsWorld, x, y, z, saveService)
+        z: Double
+    ) = NelArmorStandNmsImpl(nmsWorld, x, y, z, saveService, schedulerUtils)
 
     override val entityType = EntityType.ARMOR_STAND
 }

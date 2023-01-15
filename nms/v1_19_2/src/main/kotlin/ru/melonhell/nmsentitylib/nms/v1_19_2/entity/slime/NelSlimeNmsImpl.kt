@@ -10,6 +10,7 @@ import net.minecraft.world.entity.EntityType
 import net.minecraft.world.entity.monster.Slime
 import net.minecraft.world.level.Level
 import net.minecraft.world.level.entity.EntityInLevelCallback
+import net.minecraft.world.level.material.PushReaction
 import org.bukkit.Bukkit
 import org.bukkit.craftbukkit.v1_19_R1.CraftServer
 import ru.melonhell.nmsentitylib.EntitySaveService
@@ -18,13 +19,15 @@ import ru.melonhell.nmsentitylib.nms.v1_19_2.utils.ProxiedEntityLevelCallback
 import ru.melonhell.nmsentitylib.nms.v1_19_2.utils.ReflectionUtils.broadcast
 import ru.melonhell.nmsentitylib.nms.v1_19_2.utils.ReflectionUtils.serverEntity
 import ru.melonhell.nmsentitylib.nms.v1_19_2.utils.ReflectionUtils.updateInterval
+import ru.melonhell.nmsentitylib.utils.SchedulerUtils
 
 class NelSlimeNmsImpl(
     world: Level,
     x: Double,
     y: Double,
     z: Double,
-    private val saveService: EntitySaveService
+    private val saveService: EntitySaveService,
+    private val schedulerUtils: SchedulerUtils,
 ) : Slime(EntityType.SLIME, world), NelEntityNms {
     private val bukkit = NelSlimeBukkitImpl(Bukkit.getServer() as CraftServer, this)
     private val emptyEntityData = SynchedEntityData(this)
@@ -35,7 +38,7 @@ class NelSlimeNmsImpl(
     }
 
     override fun setLevelCallback(changeListener: EntityInLevelCallback) {
-        super.setLevelCallback(ProxiedEntityLevelCallback(changeListener, this, saveService))
+        super.setLevelCallback(ProxiedEntityLevelCallback(changeListener, this, saveService, schedulerUtils))
     }
 
     override fun shouldBeSaved() = false
@@ -55,6 +58,19 @@ class NelSlimeNmsImpl(
         }
         return super.getEntityData()
     }
+
+    override fun canCollideWith(other: Entity) = false
+    override fun shouldHardCollide() = false
+    override fun isCollidable(ignoreClimbing: Boolean) = false
+    override fun canBeCollidedWith() = false
+    override fun canCollideWithBukkit(entity: Entity) = false
+    override fun push(entity: Entity) = Unit
+    override fun push(deltaX: Double, deltaY: Double, deltaZ: Double) = Unit
+    override fun pushEntities() = Unit
+    override fun doPush(entity: Entity) = Unit
+    override fun isPushable() = false
+    override fun isPushedByFluid() = false
+    override fun getPistonPushReaction() = PushReaction.IGNORE
 
     private val realEntityData: SynchedEntityData get() = super.getEntityData()
 

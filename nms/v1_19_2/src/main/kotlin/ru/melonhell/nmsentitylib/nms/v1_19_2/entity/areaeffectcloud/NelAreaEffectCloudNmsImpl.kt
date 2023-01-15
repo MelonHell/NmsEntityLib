@@ -9,20 +9,24 @@ import net.minecraft.world.entity.AreaEffectCloud
 import net.minecraft.world.entity.Entity
 import net.minecraft.world.entity.EntityType
 import net.minecraft.world.level.Level
+import net.minecraft.world.level.entity.EntityInLevelCallback
 import org.bukkit.Bukkit
 import org.bukkit.craftbukkit.v1_19_R1.CraftServer
 import ru.melonhell.nmsentitylib.EntitySaveService
 import ru.melonhell.nmsentitylib.entity.base.NelEntityNms
+import ru.melonhell.nmsentitylib.nms.v1_19_2.utils.ProxiedEntityLevelCallback
 import ru.melonhell.nmsentitylib.nms.v1_19_2.utils.ReflectionUtils.broadcast
 import ru.melonhell.nmsentitylib.nms.v1_19_2.utils.ReflectionUtils.serverEntity
 import ru.melonhell.nmsentitylib.nms.v1_19_2.utils.ReflectionUtils.updateInterval
+import ru.melonhell.nmsentitylib.utils.SchedulerUtils
 
 class NelAreaEffectCloudNmsImpl(
     world: Level,
     x: Double,
     y: Double,
     z: Double,
-    private val saveService: EntitySaveService
+    private val saveService: EntitySaveService,
+    private val schedulerUtils: SchedulerUtils,
 ) : AreaEffectCloud(EntityType.AREA_EFFECT_CLOUD, world), NelEntityNms {
     private val bukkit = NelAreaEffectCloudBukkitImpl(Bukkit.getServer() as CraftServer, this)
     private val emptyEntityData = SynchedEntityData(this)
@@ -43,6 +47,11 @@ class NelAreaEffectCloudNmsImpl(
         super.moveTo(x, y, z, yaw, pitch)
         tracker?.serverEntity?.broadcast?.accept(ClientboundTeleportEntityPacket(this))
     }
+
+    override fun setLevelCallback(changeListener: EntityInLevelCallback) {
+        super.setLevelCallback(ProxiedEntityLevelCallback(changeListener, this, saveService, schedulerUtils))
+    }
+
 
     override fun getEntityData(): SynchedEntityData {
         if (disableMetaAutoUpdate) {

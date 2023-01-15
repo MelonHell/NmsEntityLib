@@ -16,9 +16,8 @@ class NelAreaEffectCloudFactoryImpl(
         nmsWorld: ServerLevel,
         x: Double,
         y: Double,
-        z: Double,
-        saveService: EntitySaveService
-    ) = NelAreaEffectCloudNmsImpl(nmsWorld, x, y, z, saveService)
+        z: Double
+    ) = NelAreaEffectCloudNmsImpl(nmsWorld, x, y, z, saveService, schedulerUtils)
 
     override val entityType = EntityType.AREA_EFFECT_CLOUD
 }

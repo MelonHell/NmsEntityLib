@@ -18,13 +18,15 @@ import ru.melonhell.nmsentitylib.nms.v1_19_2.utils.ProxiedEntityLevelCallback
 import ru.melonhell.nmsentitylib.nms.v1_19_2.utils.ReflectionUtils.broadcast
 import ru.melonhell.nmsentitylib.nms.v1_19_2.utils.ReflectionUtils.serverEntity
 import ru.melonhell.nmsentitylib.nms.v1_19_2.utils.ReflectionUtils.updateInterval
+import ru.melonhell.nmsentitylib.utils.SchedulerUtils
 
 class NelArmorStandNmsImpl(
     world: Level,
     x: Double,
     y: Double,
     z: Double,
-    private val saveService: EntitySaveService
+    private val saveService: EntitySaveService,
+    private val schedulerUtils: SchedulerUtils,
 ) : ArmorStand(EntityType.ARMOR_STAND, world), NelEntityNms {
     private val bukkit = NelArmorStandBukkitImpl(Bukkit.getServer() as CraftServer, this)
     private val emptyEntityData = SynchedEntityData(this)
@@ -36,7 +38,7 @@ class NelArmorStandNmsImpl(
     }
 
     override fun setLevelCallback(changeListener: EntityInLevelCallback) {
-        super.setLevelCallback(ProxiedEntityLevelCallback(changeListener, this, saveService))
+        super.setLevelCallback(ProxiedEntityLevelCallback(changeListener, this, saveService, schedulerUtils))
     }
 
     override fun shouldBeSaved() = false
