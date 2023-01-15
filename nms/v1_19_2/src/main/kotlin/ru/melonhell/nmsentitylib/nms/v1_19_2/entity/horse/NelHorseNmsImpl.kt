@@ -12,9 +12,7 @@ import net.minecraft.world.level.Level
 import net.minecraft.world.level.entity.EntityInLevelCallback
 import org.bukkit.Bukkit
 import org.bukkit.craftbukkit.v1_19_R1.CraftServer
-import org.bukkit.plugin.java.JavaPlugin
 import ru.melonhell.nmsentitylib.EntitySaveService
-import ru.melonhell.nmsentitylib.app.NmsEntityLibPlugin
 import ru.melonhell.nmsentitylib.entity.base.NelEntityNms
 import ru.melonhell.nmsentitylib.nms.v1_19_2.utils.ProxiedEntityLevelCallback
 import ru.melonhell.nmsentitylib.nms.v1_19_2.utils.ReflectionUtils.broadcast
@@ -48,9 +46,7 @@ class NelHorseNmsImpl(
     }
 
     override fun moveTo(x: Double, y: Double, z: Double, yaw: Float, pitch: Float) {
-        Bukkit.getScheduler().runTask(JavaPlugin.getPlugin(NmsEntityLibPlugin::class.java), Runnable {
-            super.moveTo(x, y, z, yaw, pitch)
-        })
+        super.moveTo(x, y, z, yaw, pitch)
         tracker?.serverEntity?.broadcast?.accept(ClientboundTeleportEntityPacket(this))
     }
 

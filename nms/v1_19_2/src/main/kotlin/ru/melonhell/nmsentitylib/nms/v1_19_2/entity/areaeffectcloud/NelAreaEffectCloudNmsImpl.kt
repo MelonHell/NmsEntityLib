@@ -11,9 +11,7 @@ import net.minecraft.world.entity.EntityType
 import net.minecraft.world.level.Level
 import org.bukkit.Bukkit
 import org.bukkit.craftbukkit.v1_19_R1.CraftServer
-import org.bukkit.plugin.java.JavaPlugin
 import ru.melonhell.nmsentitylib.EntitySaveService
-import ru.melonhell.nmsentitylib.app.NmsEntityLibPlugin
 import ru.melonhell.nmsentitylib.entity.base.NelEntityNms
 import ru.melonhell.nmsentitylib.nms.v1_19_2.utils.ReflectionUtils.broadcast
 import ru.melonhell.nmsentitylib.nms.v1_19_2.utils.ReflectionUtils.serverEntity
@@ -29,6 +27,7 @@ class NelAreaEffectCloudNmsImpl(
     private val bukkit = NelAreaEffectCloudBukkitImpl(Bukkit.getServer() as CraftServer, this)
     private val emptyEntityData = SynchedEntityData(this)
     override var disableMetaAutoUpdate: Boolean = false
+
     init {
         setPos(x, y, z)
     }
@@ -41,9 +40,7 @@ class NelAreaEffectCloudNmsImpl(
     override fun tick() = Unit
 
     override fun moveTo(x: Double, y: Double, z: Double, yaw: Float, pitch: Float) {
-        Bukkit.getScheduler().runTask(JavaPlugin.getPlugin(NmsEntityLibPlugin::class.java), Runnable {
-            super.moveTo(x, y, z, yaw, pitch)
-        })
+        super.moveTo(x, y, z, yaw, pitch)
         tracker?.serverEntity?.broadcast?.accept(ClientboundTeleportEntityPacket(this))
     }
 

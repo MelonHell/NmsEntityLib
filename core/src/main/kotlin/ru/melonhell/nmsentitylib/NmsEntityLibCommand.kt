@@ -4,6 +4,7 @@ import co.aikar.commands.BaseCommand
 import co.aikar.commands.annotation.CommandAlias
 import co.aikar.commands.annotation.Default
 import co.aikar.commands.annotation.Subcommand
+import org.bukkit.Bukkit
 import org.bukkit.entity.Entity
 import org.bukkit.entity.EntityType
 import org.bukkit.entity.Player
@@ -42,6 +43,14 @@ class NmsEntityLibCommand(
     fun tphere(player: Player) {
         last!!.teleport(player.location)
         player.sendMessage(last!!.location.toString())
+    }
+
+    @Subcommand("tphereasync")
+    fun tphereacync(player: Player) {
+        Bukkit.getScheduler().runTaskAsynchronously(javaPlugin, Runnable {
+            last!!.teleport(player.location)
+            player.sendMessage(last!!.location.toString())
+        })
     }
 
     @Subcommand("sit")
