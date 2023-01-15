@@ -1,6 +1,5 @@
 package ru.melonhell.nmsentitylib.nms.v1_19_2.entity.armorstand
 
-import net.minecraft.core.Rotations
 import net.minecraft.nbt.CompoundTag
 import net.minecraft.network.protocol.game.ClientboundSetEntityDataPacket
 import net.minecraft.network.protocol.game.ClientboundTeleportEntityPacket
@@ -56,10 +55,6 @@ class NelArmorStandNmsImpl(
         return super.getEntityData()
     }
 
-    override fun setHeadPose(angle: Rotations) {
-        super.setHeadPose(angle)
-    }
-
     private val realEntityData: SynchedEntityData get() = super.getEntityData()
 
     override fun sendMetaChanges() {
@@ -79,4 +74,6 @@ class NelArmorStandNmsImpl(
             level.addFreshEntity(this as Entity, this.spawnReason)
         }
     }
+
+    override fun checkDespawn() = Unit
 }

@@ -73,4 +73,6 @@ class NelAreaEffectCloudNmsImpl(
             level.addFreshEntity(this as Entity, this.spawnReason)
         }
     }
+
+    override fun checkDespawn() = Unit
 }
