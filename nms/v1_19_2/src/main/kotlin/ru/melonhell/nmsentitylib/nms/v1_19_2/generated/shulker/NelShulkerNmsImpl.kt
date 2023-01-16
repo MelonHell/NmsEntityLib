@@ -14,6 +14,7 @@ import net.minecraft.server.level.ServerPlayer
 import net.minecraft.world.damagesource.DamageSource
 import net.minecraft.world.entity.Entity
 import net.minecraft.world.entity.EntityType
+import net.minecraft.world.entity.LivingEntity
 import net.minecraft.world.entity.monster.Shulker
 import net.minecraft.world.level.Level
 import net.minecraft.world.level.entity.EntityInLevelCallback
@@ -46,6 +47,17 @@ class NelShulkerNmsImpl(
 
     private val bukkit = NelShulkerBukkitImpl(this)
     override fun getBukkitEntity() = bukkit
+
+    private val isArmorStand = net.minecraft.world.entity.decoration.ArmorStand::class.java.isAssignableFrom(this::class.java)
+    private val isLivingEntity = LivingEntity::class.java.isAssignableFrom(this::class.java)
+    override fun tick() {
+        if (isArmorStand) {
+            (this as net.minecraft.world.entity.decoration.ArmorStand).canTick = false
+            super.tick()
+        } else if (isLivingEntity) {
+            (this as LivingEntity).detectEquipmentUpdates()
+        }
+    }
 
     // полезности
     override val passengersOffset: Double get() = passengersRidingOffset
@@ -93,8 +105,6 @@ class NelShulkerNmsImpl(
     }
 
     // отключение всякой бесовщины
-    override fun tick() = Unit // шоб не тикало
-
     override fun push(deltaX: Double, deltaY: Double, deltaZ: Double) = Unit // чтоб не ставилось велосити
 
     override fun checkDespawn() = Unit // шоб не деспавнилось когда не надо
