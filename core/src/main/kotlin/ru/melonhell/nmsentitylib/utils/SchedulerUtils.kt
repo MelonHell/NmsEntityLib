@@ -9,10 +9,7 @@ class SchedulerUtils(
     private val javaPlugin: JavaPlugin
 ) {
     fun runSync(runnable: Runnable) {
-        if (Bukkit.isPrimaryThread()) {
-            runnable.run()
-        } else {
-            Bukkit.getScheduler().runTask(javaPlugin, runnable)
-        }
+        if (Bukkit.isPrimaryThread()) runnable.run()
+        else Bukkit.getScheduler().runTask(javaPlugin, runnable)
     }
 }

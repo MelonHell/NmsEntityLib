@@ -5,11 +5,13 @@ import co.aikar.commands.annotation.CommandAlias
 import co.aikar.commands.annotation.Default
 import co.aikar.commands.annotation.Subcommand
 import org.bukkit.Bukkit
+import org.bukkit.entity.ArmorStand
 import org.bukkit.entity.Entity
 import org.bukkit.entity.EntityType
 import org.bukkit.entity.Player
 import org.bukkit.plugin.java.JavaPlugin
 import org.springframework.stereotype.Component
+import ru.melonhell.nmsentitylib.entity.base.NelEntityBukkit
 
 @Component
 @CommandAlias("nel")
@@ -24,6 +26,11 @@ class NmsEntityLibCommand(
     fun spawn(player: Player, @Default("armor_stand") type: String) {
         val entityType = EntityType.valueOf(type.uppercase())
         last = nmsEntityLib.spawnEntity(player.location, entityType)
+    }
+
+    @Subcommand("metahack")
+    fun metahack(player: Player) {
+        (last as NelEntityBukkit).handle.disableMetaAutoUpdate = true
     }
 
     @Subcommand("spawnbukkit")
@@ -51,6 +58,11 @@ class NmsEntityLibCommand(
             last!!.teleport(player.location)
             player.sendMessage(last!!.location.toString())
         })
+    }
+
+    @Subcommand("standarms")
+    fun standarms(player: Player) {
+        (last as ArmorStand).setArms(true)
     }
 
     @Subcommand("sit")

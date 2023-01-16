@@ -5,6 +5,7 @@ import net.minecraft.network.protocol.game.ClientboundSetEntityDataPacket
 import net.minecraft.network.protocol.game.ClientboundTeleportEntityPacket
 import net.minecraft.network.syncher.SynchedEntityData
 import net.minecraft.server.level.ServerEntity
+import net.minecraft.server.level.ServerPlayer
 import net.minecraft.world.entity.AreaEffectCloud
 import net.minecraft.world.entity.Entity
 import net.minecraft.world.entity.EntityType
@@ -14,7 +15,7 @@ import org.bukkit.Bukkit
 import org.bukkit.craftbukkit.v1_19_R1.CraftServer
 import ru.melonhell.nmsentitylib.EntitySaveService
 import ru.melonhell.nmsentitylib.entity.base.NelEntityNms
-import ru.melonhell.nmsentitylib.nms.v1_19_2.utils.ProxiedEntityLevelCallback
+import ru.melonhell.nmsentitylib.nms.v1_19_2.utils.ProxiedEntityInLevelCallback
 import ru.melonhell.nmsentitylib.nms.v1_19_2.utils.ReflectionUtils.broadcast
 import ru.melonhell.nmsentitylib.nms.v1_19_2.utils.ReflectionUtils.serverEntity
 import ru.melonhell.nmsentitylib.nms.v1_19_2.utils.ReflectionUtils.updateInterval
@@ -49,7 +50,7 @@ class NelAreaEffectCloudNmsImpl(
     }
 
     override fun setLevelCallback(changeListener: EntityInLevelCallback) {
-        super.setLevelCallback(ProxiedEntityLevelCallback(changeListener, this, saveService, schedulerUtils))
+        super.setLevelCallback(ProxiedEntityInLevelCallback(changeListener, this, saveService, schedulerUtils))
     }
 
 
@@ -61,10 +62,18 @@ class NelAreaEffectCloudNmsImpl(
         return super.getEntityData()
     }
 
+    override fun push(deltaX: Double, deltaY: Double, deltaZ: Double) = Unit
+
     private val realEntityData: SynchedEntityData get() = super.getEntityData()
 
     override fun sendMetaChanges() {
         tracker?.serverEntity?.broadcast?.accept(ClientboundSetEntityDataPacket(id, realEntityData, true, true))
+    }
+
+    override fun startSeenByPlayer(player: ServerPlayer) {
+        super.startSeenByPlayer(player)
+        if (disableMetaAutoUpdate)
+            player.connection.send(ClientboundSetEntityDataPacket(id, realEntityData, true, true))
     }
 
     override fun getBukkitEntity() = bukkit
