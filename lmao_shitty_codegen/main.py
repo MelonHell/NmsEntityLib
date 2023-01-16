@@ -27,7 +27,8 @@ for entity_name in entity_info.keys():
         "nms_class_name": nms_class_name,
         "nms_entity_type": entity_info[entity_name]["nms_entity_type"],
         "bukkit_craft_class_name": entity_info[entity_name]["bukkit_craft_class_name"],
-        "bukkit_entity_type": entity_info[entity_name]["bukkit_entity_type"]
+        "bukkit_entity_type": entity_info[entity_name]["bukkit_entity_type"],
+        "craftbukkit_version": "v1_19_R1"
     }
 
     dir_name = f"{generated_dir}/{entity_name}"

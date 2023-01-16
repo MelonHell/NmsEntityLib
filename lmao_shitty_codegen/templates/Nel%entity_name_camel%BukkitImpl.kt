@@ -5,8 +5,8 @@
 package ru.melonhell.nmsentitylib.nms.v1_19_2.generated.%entity_name%
 
 import org.bukkit.Bukkit
-import org.bukkit.craftbukkit.v1_19_R1.CraftServer
-import org.bukkit.craftbukkit.v1_19_R1.entity.%bukkit_craft_class_name%
+import org.bukkit.craftbukkit.%craftbukkit_version%.CraftServer
+import org.bukkit.craftbukkit.%craftbukkit_version%.entity.%bukkit_craft_class_name%
 import ru.melonhell.nmsentitylib.entity.base.NelEntityBukkit
 
 class Nel%entity_name_camel%BukkitImpl(
