@@ -25,6 +25,7 @@ import ru.melonhell.nmsentitylib.nms.v1_19_2.ReflectionUtils.broadcast
 import ru.melonhell.nmsentitylib.nms.v1_19_2.ReflectionUtils.serverEntity
 import ru.melonhell.nmsentitylib.nms.v1_19_2.ReflectionUtils.updateInterval
 import ru.melonhell.nmsentitylib.utils.SchedulerUtils
+import net.minecraft.world.entity.decoration.ArmorStand as ArmorStandEntity
 
 class NelWitherSkeletonNmsImpl(
     world: Level,
@@ -48,11 +49,11 @@ class NelWitherSkeletonNmsImpl(
     private val bukkit = NelWitherSkeletonBukkitImpl(this)
     override fun getBukkitEntity() = bukkit
 
-    private val isArmorStand = net.minecraft.world.entity.decoration.ArmorStand::class.java.isAssignableFrom(this::class.java)
+    private val isArmorStand = ArmorStandEntity::class.java.isAssignableFrom(this::class.java)
     private val isLivingEntity = LivingEntity::class.java.isAssignableFrom(this::class.java)
     override fun tick() {
         if (isArmorStand) {
-            (this as net.minecraft.world.entity.decoration.ArmorStand).canTick = false
+            (this as ArmorStandEntity).canTick = false
             super.tick()
         } else if (isLivingEntity) {
             (this as LivingEntity).detectEquipmentUpdates()

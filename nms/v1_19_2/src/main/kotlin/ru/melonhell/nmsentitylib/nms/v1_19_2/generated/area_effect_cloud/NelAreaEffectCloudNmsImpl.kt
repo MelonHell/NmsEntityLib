@@ -12,10 +12,10 @@ import net.minecraft.network.syncher.SynchedEntityData
 import net.minecraft.server.level.ServerEntity
 import net.minecraft.server.level.ServerPlayer
 import net.minecraft.world.damagesource.DamageSource
-import net.minecraft.world.entity.AreaEffectCloud
 import net.minecraft.world.entity.Entity
 import net.minecraft.world.entity.EntityType
 import net.minecraft.world.entity.LivingEntity
+import net.minecraft.world.entity.AreaEffectCloud
 import net.minecraft.world.level.Level
 import net.minecraft.world.level.entity.EntityInLevelCallback
 import ru.melonhell.nmsentitylib.EntitySaveService
@@ -25,6 +25,7 @@ import ru.melonhell.nmsentitylib.nms.v1_19_2.ReflectionUtils.broadcast
 import ru.melonhell.nmsentitylib.nms.v1_19_2.ReflectionUtils.serverEntity
 import ru.melonhell.nmsentitylib.nms.v1_19_2.ReflectionUtils.updateInterval
 import ru.melonhell.nmsentitylib.utils.SchedulerUtils
+import net.minecraft.world.entity.decoration.ArmorStand as ArmorStandEntity
 
 class NelAreaEffectCloudNmsImpl(
     world: Level,
@@ -48,11 +49,11 @@ class NelAreaEffectCloudNmsImpl(
     private val bukkit = NelAreaEffectCloudBukkitImpl(this)
     override fun getBukkitEntity() = bukkit
 
-    private val isArmorStand = net.minecraft.world.entity.decoration.ArmorStand::class.java.isAssignableFrom(this::class.java)
+    private val isArmorStand = ArmorStandEntity::class.java.isAssignableFrom(this::class.java)
     private val isLivingEntity = LivingEntity::class.java.isAssignableFrom(this::class.java)
     override fun tick() {
         if (isArmorStand) {
-            (this as net.minecraft.world.entity.decoration.ArmorStand).canTick = false
+            (this as ArmorStandEntity).canTick = false
             super.tick()
         } else if (isLivingEntity) {
             (this as LivingEntity).detectEquipmentUpdates()
