@@ -1,0 +1,704 @@
+{
+ "allay": {
+  "nms_class": "net.minecraft.world.entity.animal.allay.Allay",
+  "nms_entity_type": "ALLAY",
+  "bukkit_craft_class_name": "CraftAllay",
+  "bukkit_entity_type": "ALLAY"
+ },
+ "area_effect_cloud": {
+  "nms_class": "net.minecraft.world.entity.AreaEffectCloud",
+  "nms_entity_type": "AREA_EFFECT_CLOUD",
+  "bukkit_craft_class_name": "CraftAreaEffectCloud",
+  "bukkit_entity_type": "AREA_EFFECT_CLOUD"
+ },
+ "armor_stand": {
+  "nms_class": "net.minecraft.world.entity.decoration.ArmorStand",
+  "nms_entity_type": "ARMOR_STAND",
+  "bukkit_craft_class_name": "CraftArmorStand",
+  "bukkit_entity_type": "ARMOR_STAND"
+ },
+ "arrow": {
+  "nms_class": "net.minecraft.world.entity.projectile.Arrow",
+  "nms_entity_type": "ARROW",
+  "bukkit_craft_class_name": "CraftArrow",
+  "bukkit_entity_type": "ARROW"
+ },
+ "axolotl": {
+  "nms_class": "net.minecraft.world.entity.animal.axolotl.Axolotl",
+  "nms_entity_type": "AXOLOTL",
+  "bukkit_craft_class_name": "CraftAxolotl",
+  "bukkit_entity_type": "AXOLOTL"
+ },
+ "bat": {
+  "nms_class": "net.minecraft.world.entity.ambient.Bat",
+  "nms_entity_type": "BAT",
+  "bukkit_craft_class_name": "CraftBat",
+  "bukkit_entity_type": "BAT"
+ },
+ "bee": {
+  "nms_class": "net.minecraft.world.entity.animal.Bee",
+  "nms_entity_type": "BEE",
+  "bukkit_craft_class_name": "CraftBee",
+  "bukkit_entity_type": "BEE"
+ },
+ "blaze": {
+  "nms_class": "net.minecraft.world.entity.monster.Blaze",
+  "nms_entity_type": "BLAZE",
+  "bukkit_craft_class_name": "CraftBlaze",
+  "bukkit_entity_type": "BLAZE"
+ },
+ "boat": {
+  "nms_class": "net.minecraft.world.entity.vehicle.Boat",
+  "nms_entity_type": "BOAT",
+  "bukkit_craft_class_name": "CraftBoat",
+  "bukkit_entity_type": "BOAT"
+ },
+ "chest_boat": {
+  "nms_class": "net.minecraft.world.entity.vehicle.ChestBoat",
+  "nms_entity_type": "CHEST_BOAT",
+  "bukkit_craft_class_name": "CraftChestBoat",
+  "bukkit_entity_type": "CHEST_BOAT"
+ },
+ "cat": {
+  "nms_class": "net.minecraft.world.entity.animal.Cat",
+  "nms_entity_type": "CAT",
+  "bukkit_craft_class_name": "CraftCat",
+  "bukkit_entity_type": "CAT"
+ },
+ "cave_spider": {
+  "nms_class": "net.minecraft.world.entity.monster.CaveSpider",
+  "nms_entity_type": "CAVE_SPIDER",
+  "bukkit_craft_class_name": "CraftCaveSpider",
+  "bukkit_entity_type": "CAVE_SPIDER"
+ },
+ "chicken": {
+  "nms_class": "net.minecraft.world.entity.animal.Chicken",
+  "nms_entity_type": "CHICKEN",
+  "bukkit_craft_class_name": "CraftChicken",
+  "bukkit_entity_type": "CHICKEN"
+ },
+ "cod": {
+  "nms_class": "net.minecraft.world.entity.animal.Cod",
+  "nms_entity_type": "COD",
+  "bukkit_craft_class_name": "CraftCod",
+  "bukkit_entity_type": "COD"
+ },
+ "cow": {
+  "nms_class": "net.minecraft.world.entity.animal.Cow",
+  "nms_entity_type": "COW",
+  "bukkit_craft_class_name": "CraftCow",
+  "bukkit_entity_type": "COW"
+ },
+ "creeper": {
+  "nms_class": "net.minecraft.world.entity.monster.Creeper",
+  "nms_entity_type": "CREEPER",
+  "bukkit_craft_class_name": "CraftCreeper",
+  "bukkit_entity_type": "CREEPER"
+ },
+ "dolphin": {
+  "nms_class": "net.minecraft.world.entity.animal.Dolphin",
+  "nms_entity_type": "DOLPHIN",
+  "bukkit_craft_class_name": "CraftDolphin",
+  "bukkit_entity_type": "DOLPHIN"
+ },
+ "donkey": {
+  "nms_class": "net.minecraft.world.entity.animal.horse.Donkey",
+  "nms_entity_type": "DONKEY",
+  "bukkit_craft_class_name": "CraftDonkey",
+  "bukkit_entity_type": "DONKEY"
+ },
+ "dragon_fireball": {
+  "nms_class": "net.minecraft.world.entity.projectile.DragonFireball",
+  "nms_entity_type": "DRAGON_FIREBALL",
+  "bukkit_craft_class_name": "CraftDragonFireball",
+  "bukkit_entity_type": "DRAGON_FIREBALL"
+ },
+ "drowned": {
+  "nms_class": "net.minecraft.world.entity.monster.Drowned",
+  "nms_entity_type": "DROWNED",
+  "bukkit_craft_class_name": "CraftDrowned",
+  "bukkit_entity_type": "DROWNED"
+ },
+ "elder_guardian": {
+  "nms_class": "net.minecraft.world.entity.monster.ElderGuardian",
+  "nms_entity_type": "ELDER_GUARDIAN",
+  "bukkit_craft_class_name": "CraftElderGuardian",
+  "bukkit_entity_type": "ELDER_GUARDIAN"
+ },
+ "end_crystal": {
+  "nms_class": "net.minecraft.world.entity.boss.enderdragon.EndCrystal",
+  "nms_entity_type": "END_CRYSTAL",
+  "bukkit_craft_class_name": "CraftEnderCrystal",
+  "bukkit_entity_type": "ENDER_CRYSTAL"
+ },
+ "ender_dragon": {
+  "nms_class": "net.minecraft.world.entity.boss.enderdragon.EnderDragon",
+  "nms_entity_type": "ENDER_DRAGON",
+  "bukkit_craft_class_name": "CraftEnderDragon",
+  "bukkit_entity_type": "ENDER_DRAGON"
+ },
+ "enderman": {
+  "nms_class": "net.minecraft.world.entity.monster.EnderMan",
+  "nms_entity_type": "ENDERMAN",
+  "bukkit_craft_class_name": "CraftEnderman",
+  "bukkit_entity_type": "ENDERMAN"
+ },
+ "endermite": {
+  "nms_class": "net.minecraft.world.entity.monster.Endermite",
+  "nms_entity_type": "ENDERMITE",
+  "bukkit_craft_class_name": "CraftEndermite",
+  "bukkit_entity_type": "ENDERMITE"
+ },
+ "evoker": {
+  "nms_class": "net.minecraft.world.entity.monster.Evoker",
+  "nms_entity_type": "EVOKER",
+  "bukkit_craft_class_name": "CraftEvoker",
+  "bukkit_entity_type": "EVOKER"
+ },
+ "evoker_fangs": {
+  "nms_class": "net.minecraft.world.entity.projectile.EvokerFangs",
+  "nms_entity_type": "EVOKER_FANGS",
+  "bukkit_craft_class_name": "CraftEvokerFangs",
+  "bukkit_entity_type": "EVOKER_FANGS"
+ },
+ "experience_orb": {
+  "nms_class": "net.minecraft.world.entity.ExperienceOrb",
+  "nms_entity_type": "EXPERIENCE_ORB",
+  "bukkit_craft_class_name": "CraftExperienceOrb",
+  "bukkit_entity_type": "EXPERIENCE_ORB"
+ },
+ "eye_of_ender": {
+  "nms_class": "net.minecraft.world.entity.projectile.EyeOfEnder",
+  "nms_entity_type": "EYE_OF_ENDER",
+  "bukkit_craft_class_name": "CraftEnderSignal",
+  "bukkit_entity_type": "ENDER_SIGNAL"
+ },
+ "falling_block": {
+  "nms_class": "net.minecraft.world.entity.item.FallingBlockEntity",
+  "nms_entity_type": "FALLING_BLOCK",
+  "bukkit_craft_class_name": "CraftFallingBlock",
+  "bukkit_entity_type": "FALLING_BLOCK"
+ },
+ "firework_rocket": {
+  "nms_class": "net.minecraft.world.entity.projectile.FireworkRocketEntity",
+  "nms_entity_type": "FIREWORK_ROCKET",
+  "bukkit_craft_class_name": "CraftFirework",
+  "bukkit_entity_type": "FIREWORK"
+ },
+ "fox": {
+  "nms_class": "net.minecraft.world.entity.animal.Fox",
+  "nms_entity_type": "FOX",
+  "bukkit_craft_class_name": "CraftFox",
+  "bukkit_entity_type": "FOX"
+ },
+ "frog": {
+  "nms_class": "net.minecraft.world.entity.animal.frog.Frog",
+  "nms_entity_type": "FROG",
+  "bukkit_craft_class_name": "CraftFrog",
+  "bukkit_entity_type": "FROG"
+ },
+ "ghast": {
+  "nms_class": "net.minecraft.world.entity.monster.Ghast",
+  "nms_entity_type": "GHAST",
+  "bukkit_craft_class_name": "CraftGhast",
+  "bukkit_entity_type": "GHAST"
+ },
+ "giant": {
+  "nms_class": "net.minecraft.world.entity.monster.Giant",
+  "nms_entity_type": "GIANT",
+  "bukkit_craft_class_name": "CraftGiant",
+  "bukkit_entity_type": "GIANT"
+ },
+ "glow_item_frame": {
+  "nms_class": "net.minecraft.world.entity.decoration.GlowItemFrame",
+  "nms_entity_type": "GLOW_ITEM_FRAME",
+  "bukkit_craft_class_name": "CraftGlowItemFrame",
+  "bukkit_entity_type": "GLOW_ITEM_FRAME"
+ },
+ "glow_squid": {
+  "nms_class": "net.minecraft.world.entity.GlowSquid",
+  "nms_entity_type": "GLOW_SQUID",
+  "bukkit_craft_class_name": "CraftGlowSquid",
+  "bukkit_entity_type": "GLOW_SQUID"
+ },
+ "goat": {
+  "nms_class": "net.minecraft.world.entity.animal.goat.Goat",
+  "nms_entity_type": "GOAT",
+  "bukkit_craft_class_name": "CraftGoat",
+  "bukkit_entity_type": "GOAT"
+ },
+ "guardian": {
+  "nms_class": "net.minecraft.world.entity.monster.Guardian",
+  "nms_entity_type": "GUARDIAN",
+  "bukkit_craft_class_name": "CraftGuardian",
+  "bukkit_entity_type": "GUARDIAN"
+ },
+ "hoglin": {
+  "nms_class": "net.minecraft.world.entity.monster.hoglin.Hoglin",
+  "nms_entity_type": "HOGLIN",
+  "bukkit_craft_class_name": "CraftHoglin",
+  "bukkit_entity_type": "HOGLIN"
+ },
+ "horse": {
+  "nms_class": "net.minecraft.world.entity.animal.horse.Horse",
+  "nms_entity_type": "HORSE",
+  "bukkit_craft_class_name": "CraftHorse",
+  "bukkit_entity_type": "HORSE"
+ },
+ "husk": {
+  "nms_class": "net.minecraft.world.entity.monster.Husk",
+  "nms_entity_type": "HUSK",
+  "bukkit_craft_class_name": "CraftHusk",
+  "bukkit_entity_type": "HUSK"
+ },
+ "illusioner": {
+  "nms_class": "net.minecraft.world.entity.monster.Illusioner",
+  "nms_entity_type": "ILLUSIONER",
+  "bukkit_craft_class_name": "CraftIllusioner",
+  "bukkit_entity_type": "ILLUSIONER"
+ },
+ "iron_golem": {
+  "nms_class": "net.minecraft.world.entity.animal.IronGolem",
+  "nms_entity_type": "IRON_GOLEM",
+  "bukkit_craft_class_name": "CraftIronGolem",
+  "bukkit_entity_type": "IRON_GOLEM"
+ },
+ "item": {
+  "nms_class": "net.minecraft.world.entity.item.ItemEntity",
+  "nms_entity_type": "ITEM",
+  "bukkit_craft_class_name": "CraftItem",
+  "bukkit_entity_type": "DROPPED_ITEM"
+ },
+ "item_frame": {
+  "nms_class": "net.minecraft.world.entity.decoration.ItemFrame",
+  "nms_entity_type": "ITEM_FRAME",
+  "bukkit_craft_class_name": "CraftItemFrame",
+  "bukkit_entity_type": "ITEM_FRAME"
+ },
+ "fireball": {
+  "nms_class": "net.minecraft.world.entity.projectile.LargeFireball",
+  "nms_entity_type": "FIREBALL",
+  "bukkit_craft_class_name": "CraftLargeFireball",
+  "bukkit_entity_type": "FIREBALL"
+ },
+ "leash_knot": {
+  "nms_class": "net.minecraft.world.entity.decoration.LeashFenceKnotEntity",
+  "nms_entity_type": "LEASH_KNOT",
+  "bukkit_craft_class_name": "CraftLeash",
+  "bukkit_entity_type": "LEASH_HITCH"
+ },
+ "lightning_bolt": {
+  "nms_class": "net.minecraft.world.entity.LightningBolt",
+  "nms_entity_type": "LIGHTNING_BOLT",
+  "bukkit_craft_class_name": "CraftLightningStrike",
+  "bukkit_entity_type": "LIGHTNING"
+ },
+ "llama": {
+  "nms_class": "net.minecraft.world.entity.animal.horse.Llama",
+  "nms_entity_type": "LLAMA",
+  "bukkit_craft_class_name": "CraftLlama",
+  "bukkit_entity_type": "LLAMA"
+ },
+ "llama_spit": {
+  "nms_class": "net.minecraft.world.entity.projectile.LlamaSpit",
+  "nms_entity_type": "LLAMA_SPIT",
+  "bukkit_craft_class_name": "CraftLlamaSpit",
+  "bukkit_entity_type": "LLAMA_SPIT"
+ },
+ "magma_cube": {
+  "nms_class": "net.minecraft.world.entity.monster.MagmaCube",
+  "nms_entity_type": "MAGMA_CUBE",
+  "bukkit_craft_class_name": "CraftMagmaCube",
+  "bukkit_entity_type": "MAGMA_CUBE"
+ },
+ "marker": {
+  "nms_class": "net.minecraft.world.entity.Marker",
+  "nms_entity_type": "MARKER",
+  "bukkit_craft_class_name": "CraftMarker",
+  "bukkit_entity_type": "MARKER"
+ },
+ "minecart": {
+  "nms_class": "net.minecraft.world.entity.vehicle.Minecart",
+  "nms_entity_type": "MINECART",
+  "bukkit_craft_class_name": "CraftMinecartRideable",
+  "bukkit_entity_type": "MINECART"
+ },
+ "chest_minecart": {
+  "nms_class": "net.minecraft.world.entity.vehicle.MinecartChest",
+  "nms_entity_type": "CHEST_MINECART",
+  "bukkit_craft_class_name": "CraftMinecartChest",
+  "bukkit_entity_type": "MINECART_CHEST"
+ },
+ "command_block_minecart": {
+  "nms_class": "net.minecraft.world.entity.vehicle.MinecartCommandBlock",
+  "nms_entity_type": "COMMAND_BLOCK_MINECART",
+  "bukkit_craft_class_name": "CraftMinecartCommand",
+  "bukkit_entity_type": "MINECART_COMMAND"
+ },
+ "furnace_minecart": {
+  "nms_class": "net.minecraft.world.entity.vehicle.MinecartFurnace",
+  "nms_entity_type": "FURNACE_MINECART",
+  "bukkit_craft_class_name": "CraftMinecartFurnace",
+  "bukkit_entity_type": "MINECART_FURNACE"
+ },
+ "hopper_minecart": {
+  "nms_class": "net.minecraft.world.entity.vehicle.MinecartHopper",
+  "nms_entity_type": "HOPPER_MINECART",
+  "bukkit_craft_class_name": "CraftMinecartHopper",
+  "bukkit_entity_type": "MINECART_HOPPER"
+ },
+ "spawner_minecart": {
+  "nms_class": "net.minecraft.world.entity.vehicle.MinecartMobSpawner",
+  "nms_entity_type": "SPAWNER_MINECART",
+  "bukkit_craft_class_name": "CraftMinecartMobSpawner",
+  "bukkit_entity_type": "MINECART_MOB_SPAWNER"
+ },
+ "tnt_minecart": {
+  "nms_class": "net.minecraft.world.entity.vehicle.MinecartTNT",
+  "nms_entity_type": "TNT_MINECART",
+  "bukkit_craft_class_name": "CraftMinecartTNT",
+  "bukkit_entity_type": "MINECART_TNT"
+ },
+ "mule": {
+  "nms_class": "net.minecraft.world.entity.animal.horse.Mule",
+  "nms_entity_type": "MULE",
+  "bukkit_craft_class_name": "CraftMule",
+  "bukkit_entity_type": "MULE"
+ },
+ "mooshroom": {
+  "nms_class": "net.minecraft.world.entity.animal.MushroomCow",
+  "nms_entity_type": "MOOSHROOM",
+  "bukkit_craft_class_name": "CraftMushroomCow",
+  "bukkit_entity_type": "MUSHROOM_COW"
+ },
+ "ocelot": {
+  "nms_class": "net.minecraft.world.entity.animal.Ocelot",
+  "nms_entity_type": "OCELOT",
+  "bukkit_craft_class_name": "CraftOcelot",
+  "bukkit_entity_type": "OCELOT"
+ },
+ "painting": {
+  "nms_class": "net.minecraft.world.entity.decoration.Painting",
+  "nms_entity_type": "PAINTING",
+  "bukkit_craft_class_name": "CraftPainting",
+  "bukkit_entity_type": "PAINTING"
+ },
+ "panda": {
+  "nms_class": "net.minecraft.world.entity.animal.Panda",
+  "nms_entity_type": "PANDA",
+  "bukkit_craft_class_name": "CraftPanda",
+  "bukkit_entity_type": "PANDA"
+ },
+ "parrot": {
+  "nms_class": "net.minecraft.world.entity.animal.Parrot",
+  "nms_entity_type": "PARROT",
+  "bukkit_craft_class_name": "CraftParrot",
+  "bukkit_entity_type": "PARROT"
+ },
+ "phantom": {
+  "nms_class": "net.minecraft.world.entity.monster.Phantom",
+  "nms_entity_type": "PHANTOM",
+  "bukkit_craft_class_name": "CraftPhantom",
+  "bukkit_entity_type": "PHANTOM"
+ },
+ "pig": {
+  "nms_class": "net.minecraft.world.entity.animal.Pig",
+  "nms_entity_type": "PIG",
+  "bukkit_craft_class_name": "CraftPig",
+  "bukkit_entity_type": "PIG"
+ },
+ "piglin": {
+  "nms_class": "net.minecraft.world.entity.monster.piglin.Piglin",
+  "nms_entity_type": "PIGLIN",
+  "bukkit_craft_class_name": "CraftPiglin",
+  "bukkit_entity_type": "PIGLIN"
+ },
+ "piglin_brute": {
+  "nms_class": "net.minecraft.world.entity.monster.piglin.PiglinBrute",
+  "nms_entity_type": "PIGLIN_BRUTE",
+  "bukkit_craft_class_name": "CraftPiglinBrute",
+  "bukkit_entity_type": "PIGLIN_BRUTE"
+ },
+ "pillager": {
+  "nms_class": "net.minecraft.world.entity.monster.Pillager",
+  "nms_entity_type": "PILLAGER",
+  "bukkit_craft_class_name": "CraftPillager",
+  "bukkit_entity_type": "PILLAGER"
+ },
+ "polar_bear": {
+  "nms_class": "net.minecraft.world.entity.animal.PolarBear",
+  "nms_entity_type": "POLAR_BEAR",
+  "bukkit_craft_class_name": "CraftPolarBear",
+  "bukkit_entity_type": "POLAR_BEAR"
+ },
+ "tnt": {
+  "nms_class": "net.minecraft.world.entity.item.PrimedTnt",
+  "nms_entity_type": "TNT",
+  "bukkit_craft_class_name": "CraftTNTPrimed",
+  "bukkit_entity_type": "PRIMED_TNT"
+ },
+ "pufferfish": {
+  "nms_class": "net.minecraft.world.entity.animal.Pufferfish",
+  "nms_entity_type": "PUFFERFISH",
+  "bukkit_craft_class_name": "CraftPufferFish",
+  "bukkit_entity_type": "PUFFERFISH"
+ },
+ "rabbit": {
+  "nms_class": "net.minecraft.world.entity.animal.Rabbit",
+  "nms_entity_type": "RABBIT",
+  "bukkit_craft_class_name": "CraftRabbit",
+  "bukkit_entity_type": "RABBIT"
+ },
+ "ravager": {
+  "nms_class": "net.minecraft.world.entity.monster.Ravager",
+  "nms_entity_type": "RAVAGER",
+  "bukkit_craft_class_name": "CraftRavager",
+  "bukkit_entity_type": "RAVAGER"
+ },
+ "salmon": {
+  "nms_class": "net.minecraft.world.entity.animal.Salmon",
+  "nms_entity_type": "SALMON",
+  "bukkit_craft_class_name": "CraftSalmon",
+  "bukkit_entity_type": "SALMON"
+ },
+ "sheep": {
+  "nms_class": "net.minecraft.world.entity.animal.Sheep",
+  "nms_entity_type": "SHEEP",
+  "bukkit_craft_class_name": "CraftSheep",
+  "bukkit_entity_type": "SHEEP"
+ },
+ "shulker": {
+  "nms_class": "net.minecraft.world.entity.monster.Shulker",
+  "nms_entity_type": "SHULKER",
+  "bukkit_craft_class_name": "CraftShulker",
+  "bukkit_entity_type": "SHULKER"
+ },
+ "shulker_bullet": {
+  "nms_class": "net.minecraft.world.entity.projectile.ShulkerBullet",
+  "nms_entity_type": "SHULKER_BULLET",
+  "bukkit_craft_class_name": "CraftShulkerBullet",
+  "bukkit_entity_type": "SHULKER_BULLET"
+ },
+ "silverfish": {
+  "nms_class": "net.minecraft.world.entity.monster.Silverfish",
+  "nms_entity_type": "SILVERFISH",
+  "bukkit_craft_class_name": "CraftSilverfish",
+  "bukkit_entity_type": "SILVERFISH"
+ },
+ "skeleton": {
+  "nms_class": "net.minecraft.world.entity.monster.Skeleton",
+  "nms_entity_type": "SKELETON",
+  "bukkit_craft_class_name": "CraftSkeleton",
+  "bukkit_entity_type": "SKELETON"
+ },
+ "skeleton_horse": {
+  "nms_class": "net.minecraft.world.entity.animal.horse.SkeletonHorse",
+  "nms_entity_type": "SKELETON_HORSE",
+  "bukkit_craft_class_name": "CraftSkeletonHorse",
+  "bukkit_entity_type": "SKELETON_HORSE"
+ },
+ "slime": {
+  "nms_class": "net.minecraft.world.entity.monster.Slime",
+  "nms_entity_type": "SLIME",
+  "bukkit_craft_class_name": "CraftSlime",
+  "bukkit_entity_type": "SLIME"
+ },
+ "small_fireball": {
+  "nms_class": "net.minecraft.world.entity.projectile.SmallFireball",
+  "nms_entity_type": "SMALL_FIREBALL",
+  "bukkit_craft_class_name": "CraftSmallFireball",
+  "bukkit_entity_type": "SMALL_FIREBALL"
+ },
+ "snow_golem": {
+  "nms_class": "net.minecraft.world.entity.animal.SnowGolem",
+  "nms_entity_type": "SNOW_GOLEM",
+  "bukkit_craft_class_name": "CraftSnowman",
+  "bukkit_entity_type": "SNOWMAN"
+ },
+ "snowball": {
+  "nms_class": "net.minecraft.world.entity.projectile.Snowball",
+  "nms_entity_type": "SNOWBALL",
+  "bukkit_craft_class_name": "CraftSnowball",
+  "bukkit_entity_type": "SNOWBALL"
+ },
+ "spectral_arrow": {
+  "nms_class": "net.minecraft.world.entity.projectile.SpectralArrow",
+  "nms_entity_type": "SPECTRAL_ARROW",
+  "bukkit_craft_class_name": "CraftSpectralArrow",
+  "bukkit_entity_type": "SPECTRAL_ARROW"
+ },
+ "spider": {
+  "nms_class": "net.minecraft.world.entity.monster.Spider",
+  "nms_entity_type": "SPIDER",
+  "bukkit_craft_class_name": "CraftSpider",
+  "bukkit_entity_type": "SPIDER"
+ },
+ "squid": {
+  "nms_class": "net.minecraft.world.entity.animal.Squid",
+  "nms_entity_type": "SQUID",
+  "bukkit_craft_class_name": "CraftSquid",
+  "bukkit_entity_type": "SQUID"
+ },
+ "stray": {
+  "nms_class": "net.minecraft.world.entity.monster.Stray",
+  "nms_entity_type": "STRAY",
+  "bukkit_craft_class_name": "CraftStray",
+  "bukkit_entity_type": "STRAY"
+ },
+ "strider": {
+  "nms_class": "net.minecraft.world.entity.monster.Strider",
+  "nms_entity_type": "STRIDER",
+  "bukkit_craft_class_name": "CraftStrider",
+  "bukkit_entity_type": "STRIDER"
+ },
+ "tadpole": {
+  "nms_class": "net.minecraft.world.entity.animal.frog.Tadpole",
+  "nms_entity_type": "TADPOLE",
+  "bukkit_craft_class_name": "CraftTadpole",
+  "bukkit_entity_type": "TADPOLE"
+ },
+ "egg": {
+  "nms_class": "net.minecraft.world.entity.projectile.ThrownEgg",
+  "nms_entity_type": "EGG",
+  "bukkit_craft_class_name": "CraftEgg",
+  "bukkit_entity_type": "EGG"
+ },
+ "ender_pearl": {
+  "nms_class": "net.minecraft.world.entity.projectile.ThrownEnderpearl",
+  "nms_entity_type": "ENDER_PEARL",
+  "bukkit_craft_class_name": "CraftEnderPearl",
+  "bukkit_entity_type": "ENDER_PEARL"
+ },
+ "experience_bottle": {
+  "nms_class": "net.minecraft.world.entity.projectile.ThrownExperienceBottle",
+  "nms_entity_type": "EXPERIENCE_BOTTLE",
+  "bukkit_craft_class_name": "CraftThrownExpBottle",
+  "bukkit_entity_type": "THROWN_EXP_BOTTLE"
+ },
+ "potion": {
+  "nms_class": "net.minecraft.world.entity.projectile.ThrownPotion",
+  "nms_entity_type": "POTION",
+  "bukkit_craft_class_name": "CraftThrownPotion",
+  "bukkit_entity_type": "SPLASH_POTION"
+ },
+ "trident": {
+  "nms_class": "net.minecraft.world.entity.projectile.ThrownTrident",
+  "nms_entity_type": "TRIDENT",
+  "bukkit_craft_class_name": "CraftTrident",
+  "bukkit_entity_type": "TRIDENT"
+ },
+ "trader_llama": {
+  "nms_class": "net.minecraft.world.entity.animal.horse.TraderLlama",
+  "nms_entity_type": "TRADER_LLAMA",
+  "bukkit_craft_class_name": "CraftTraderLlama",
+  "bukkit_entity_type": "TRADER_LLAMA"
+ },
+ "tropical_fish": {
+  "nms_class": "net.minecraft.world.entity.animal.TropicalFish",
+  "nms_entity_type": "TROPICAL_FISH",
+  "bukkit_craft_class_name": "CraftTropicalFish",
+  "bukkit_entity_type": "TROPICAL_FISH"
+ },
+ "turtle": {
+  "nms_class": "net.minecraft.world.entity.animal.Turtle",
+  "nms_entity_type": "TURTLE",
+  "bukkit_craft_class_name": "CraftTurtle",
+  "bukkit_entity_type": "TURTLE"
+ },
+ "vex": {
+  "nms_class": "net.minecraft.world.entity.monster.Vex",
+  "nms_entity_type": "VEX",
+  "bukkit_craft_class_name": "CraftVex",
+  "bukkit_entity_type": "VEX"
+ },
+ "villager": {
+  "nms_class": "net.minecraft.world.entity.npc.Villager",
+  "nms_entity_type": "VILLAGER",
+  "bukkit_craft_class_name": "CraftVillager",
+  "bukkit_entity_type": "VILLAGER"
+ },
+ "vindicator": {
+  "nms_class": "net.minecraft.world.entity.monster.Vindicator",
+  "nms_entity_type": "VINDICATOR",
+  "bukkit_craft_class_name": "CraftVindicator",
+  "bukkit_entity_type": "VINDICATOR"
+ },
+ "wandering_trader": {
+  "nms_class": "net.minecraft.world.entity.npc.WanderingTrader",
+  "nms_entity_type": "WANDERING_TRADER",
+  "bukkit_craft_class_name": "CraftWanderingTrader",
+  "bukkit_entity_type": "WANDERING_TRADER"
+ },
+ "warden": {
+  "nms_class": "net.minecraft.world.entity.monster.warden.Warden",
+  "nms_entity_type": "WARDEN",
+  "bukkit_craft_class_name": "CraftWarden",
+  "bukkit_entity_type": "WARDEN"
+ },
+ "witch": {
+  "nms_class": "net.minecraft.world.entity.monster.Witch",
+  "nms_entity_type": "WITCH",
+  "bukkit_craft_class_name": "CraftWitch",
+  "bukkit_entity_type": "WITCH"
+ },
+ "wither": {
+  "nms_class": "net.minecraft.world.entity.boss.wither.WitherBoss",
+  "nms_entity_type": "WITHER",
+  "bukkit_craft_class_name": "CraftWither",
+  "bukkit_entity_type": "WITHER"
+ },
+ "wither_skeleton": {
+  "nms_class": "net.minecraft.world.entity.monster.WitherSkeleton",
+  "nms_entity_type": "WITHER_SKELETON",
+  "bukkit_craft_class_name": "CraftWitherSkeleton",
+  "bukkit_entity_type": "WITHER_SKELETON"
+ },
+ "wither_skull": {
+  "nms_class": "net.minecraft.world.entity.projectile.WitherSkull",
+  "nms_entity_type": "WITHER_SKULL",
+  "bukkit_craft_class_name": "CraftWitherSkull",
+  "bukkit_entity_type": "WITHER_SKULL"
+ },
+ "wolf": {
+  "nms_class": "net.minecraft.world.entity.animal.Wolf",
+  "nms_entity_type": "WOLF",
+  "bukkit_craft_class_name": "CraftWolf",
+  "bukkit_entity_type": "WOLF"
+ },
+ "zoglin": {
+  "nms_class": "net.minecraft.world.entity.monster.Zoglin",
+  "nms_entity_type": "ZOGLIN",
+  "bukkit_craft_class_name": "CraftZoglin",
+  "bukkit_entity_type": "ZOGLIN"
+ },
+ "zombie": {
+  "nms_class": "net.minecraft.world.entity.monster.Zombie",
+  "nms_entity_type": "ZOMBIE",
+  "bukkit_craft_class_name": "CraftZombie",
+  "bukkit_entity_type": "ZOMBIE"
+ },
+ "zombie_horse": {
+  "nms_class": "net.minecraft.world.entity.animal.horse.ZombieHorse",
+  "nms_entity_type": "ZOMBIE_HORSE",
+  "bukkit_craft_class_name": "CraftZombieHorse",
+  "bukkit_entity_type": "ZOMBIE_HORSE"
+ },
+ "zombie_villager": {
+  "nms_class": "net.minecraft.world.entity.monster.ZombieVillager",
+  "nms_entity_type": "ZOMBIE_VILLAGER",
+  "bukkit_craft_class_name": "CraftVillagerZombie",
+  "bukkit_entity_type": "ZOMBIE_VILLAGER"
+ },
+ "zombified_piglin": {
+  "nms_class": "net.minecraft.world.entity.monster.ZombifiedPiglin",
+  "nms_entity_type": "ZOMBIFIED_PIGLIN",
+  "bukkit_craft_class_name": "CraftPigZombie",
+  "bukkit_entity_type": "ZOMBIFIED_PIGLIN"
+ },
+ "fishing_bobber": {
+  "nms_class": "net.minecraft.world.entity.projectile.FishingHook",
+  "nms_entity_type": "FISHING_BOBBER",
+  "bukkit_craft_class_name": "CraftFishHook",
+  "bukkit_entity_type": "FISHING_HOOK"
+ }
+}

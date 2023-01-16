@@ -69,4 +69,9 @@ class NmsEntityLibCommand(
     fun sit(player: Player) {
         last!!.addPassenger(player)
     }
+
+    @Subcommand("test")
+    fun test(player: Player) {
+        (last as NelEntityBukkit).handle.test()
+    }
 }
