@@ -9,6 +9,7 @@ import net.minecraft.network.protocol.Packet
 import net.minecraft.network.protocol.game.ClientboundSetEntityDataPacket
 import net.minecraft.network.protocol.game.ClientboundTeleportEntityPacket
 import net.minecraft.network.syncher.SynchedEntityData
+import net.minecraft.server.level.ChunkMap
 import net.minecraft.server.level.ServerEntity
 import net.minecraft.server.level.ServerPlayer
 import net.minecraft.world.damagesource.DamageSource
@@ -49,9 +50,17 @@ class NelAxolotlNmsImpl(
     private val bukkit = NelAxolotlBukkitImpl(this)
     override fun getBukkitEntity() = bukkit
 
+    private var lastTracker: ChunkMap.TrackedEntity? = null
+
     private val isArmorStand = ArmorStandEntity::class.java.isAssignableFrom(this::class.java)
     private val isLivingEntity = LivingEntity::class.java.isAssignableFrom(this::class.java)
+    
+    @Suppress("CAST_NEVER_SUCCEEDS")
     override fun tick() {
+        if (lastTracker !== tracker) {
+            tracker?.serverEntity?.updateInterval = Int.MAX_VALUE
+            lastTracker = tracker
+        }
         if (isArmorStand) {
             (this as ArmorStandEntity).canTick = false
             super.tick()

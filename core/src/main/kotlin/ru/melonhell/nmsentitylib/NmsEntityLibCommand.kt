@@ -17,7 +17,8 @@ import ru.melonhell.nmsentitylib.entity.base.NelEntityBukkit
 @CommandAlias("nel")
 class NmsEntityLibCommand(
     private val nmsEntityLib: NmsEntityLib,
-    private val javaPlugin: JavaPlugin
+    private val javaPlugin: JavaPlugin,
+    private val testShit: TestShit
 ) : BaseCommand() {
 
     private var last: Entity? = null
@@ -73,5 +74,10 @@ class NmsEntityLibCommand(
     @Subcommand("test")
     fun test(player: Player) {
         (last as NelEntityBukkit).handle.test()
+    }
+
+    @Subcommand("testupdint")
+    fun testupdint(player: Player) {
+        testShit.printUpdateIntervals(player)
     }
 }
