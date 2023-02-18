@@ -13,7 +13,9 @@ class ProxiedEntityInLevelCallback(
     private val schedulerUtils: SchedulerUtils,
 ) : EntityInLevelCallback {
     override fun onMove() {
-        schedulerUtils.runSync { original.onMove() }
+        schedulerUtils.runSync {
+            if (!(entity as Entity).isRemoved) original.onMove()
+        }
     }
 
     override fun onRemove(reason: Entity.RemovalReason) {
