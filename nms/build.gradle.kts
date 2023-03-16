@@ -1,11 +1,11 @@
 plugins {
-    id("io.papermc.paperweight.userdev") version "1.3.8" apply false
+    id("io.papermc.paperweight.userdev") version "1.5.4-SNAPSHOT" apply false
 }
 
 val currentProject = project;
 
 dependencies {
-    compileOnly("io.papermc.paper:paper-api:1.19.2-R0.1-SNAPSHOT")
+    compileOnly("io.papermc.paper:paper-api:1.19.4-R0.1-SNAPSHOT")
 }
 
 subprojects {
