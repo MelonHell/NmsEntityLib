@@ -9,6 +9,5 @@ rootProject.name = "NmsEntityLib"
 
 include(
     "core",
-    "nms",
-    "nms:v1_19_4"
+    "nms"
 )

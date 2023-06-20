@@ -2,7 +2,7 @@
  * ЭТА ХУЙНЯ СГЕНЕРИНА ХУЙНЁЙ!!!
  * NmsEntityLib/lmao_shitty_codegen/main.py
  */
-package ru.melonhell.nmsentitylib.nms.v1_19_4.generated.%entity_name%
+package ru.melonhell.nmsentitylib.nms.generated.%entity_name%
 
 import net.minecraft.nbt.CompoundTag
 import net.minecraft.network.protocol.Packet
@@ -21,9 +21,9 @@ import net.minecraft.world.level.Level
 import net.minecraft.world.level.entity.EntityInLevelCallback
 import ru.melonhell.nmsentitylib.EntitySaveService
 import ru.melonhell.nmsentitylib.entity.base.NelEntityNms
-import ru.melonhell.nmsentitylib.nms.v1_19_4.ProxiedEntityInLevelCallback
-import ru.melonhell.nmsentitylib.nms.v1_19_4.ReflectionUtils.broadcast
-import ru.melonhell.nmsentitylib.nms.v1_19_4.ReflectionUtils.updateInterval
+import ru.melonhell.nmsentitylib.nms.ProxiedEntityInLevelCallback
+import ru.melonhell.nmsentitylib.nms.ReflectionUtils.broadcast
+import ru.melonhell.nmsentitylib.nms.ReflectionUtils.updateInterval
 import ru.melonhell.nmsentitylib.utils.SchedulerUtils
 import net.minecraft.world.entity.decoration.ArmorStand as ArmorStandEntity
 
@@ -42,7 +42,7 @@ class Nel%entity_name_camel%NmsImpl(
     }
 
     override fun spawn() {
-        level.addFreshEntity(this, (this as Entity).spawnReason)
+        level().addFreshEntity(this, (this as Entity).spawnReason)
         tracker?.serverEntity?.updateInterval = Int.MAX_VALUE
     }
 

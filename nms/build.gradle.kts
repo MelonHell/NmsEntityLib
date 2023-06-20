@@ -1,13 +1,7 @@
 plugins {
-    id("io.papermc.paperweight.userdev") version "1.5.4-SNAPSHOT" apply false
+    id("io.papermc.paperweight.userdev") version "1.5.5"
 }
-
-val currentProject = project;
 
 dependencies {
-    compileOnly("io.papermc.paper:paper-api:1.19.4-R0.1-SNAPSHOT")
-}
-
-subprojects {
-    apply(plugin = "io.papermc.paperweight.userdev")
+    paperweight.paperDevBundle("1.20.1-R0.1-SNAPSHOT")
 }

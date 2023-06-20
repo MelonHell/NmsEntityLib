@@ -2,13 +2,13 @@
  * ЭТА ХУЙНЯ СГЕНЕРИНА ХУЙНЁЙ!!!
  * NmsEntityLib/lmao_shitty_codegen/main.py
  */
-package ru.melonhell.nmsentitylib.nms.v1_19_4.generated.%entity_name%
+package ru.melonhell.nmsentitylib.nms.generated.%entity_name%
 
 import net.minecraft.server.level.ServerLevel
 import org.bukkit.entity.EntityType
 import org.springframework.stereotype.Component
 import ru.melonhell.nmsentitylib.EntitySaveService
-import ru.melonhell.nmsentitylib.nms.v1_19_4.AbstractNelEntityFactory
+import ru.melonhell.nmsentitylib.nms.AbstractNelEntityFactory
 import ru.melonhell.nmsentitylib.utils.SchedulerUtils
 
 @Component

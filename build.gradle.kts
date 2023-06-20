@@ -9,12 +9,7 @@ bukkit {
     main = "ru.melonhell.nmsentitylib.app.NmsEntityLibPlugin"
     apiVersion = "1.13"
     authors = listOf("MelonHell")
-    depend = listOf("SpringSpigot")
-    libraries = listOf(
-        "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.7.20",
-        "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4",
-        "org.jetbrains.kotlinx:kotlinx-coroutines-jdk8:1.6.4",
-    )
+    depend = listOf("SpringSpigot", "GlobalLibraryLoader")
 }
 
 allprojects {
@@ -34,7 +29,7 @@ allprojects {
         compileOnly("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.7.20")
         compileOnly("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
         compileOnly("org.jetbrains.kotlinx:kotlinx-coroutines-jdk8:1.6.4")
-        compileOnly("ru.spliterash:spring-spigot:1.0.6")
+        compileOnly("ru.spliterash:spring-spigot:1.0.11")
     }
 }
 
@@ -44,10 +39,8 @@ configure(allprojects - project(":core")) {
     dependencies.api(project(":core"))
 }
 
-project(":nms").subprojects.forEach {
-    rootProject.dependencies {
-        api(project(it.path, "reobf"))
-    }
+dependencies {
+    api(project(":nms", "reobf"))
 }
 
 tasks {

@@ -5,7 +5,7 @@ import shutil
 with open("entity_info.json", "r") as f:
     entity_info = json.load(f)
 
-generated_dir = "../nms/v1_19_4/src/main/kotlin/ru/melonhell/nmsentitylib/nms/v1_19_4/generated"
+generated_dir = "../nms/src/main/kotlin/ru/melonhell/nmsentitylib/nms/generated"
 
 shutil.rmtree(generated_dir, ignore_errors=True)
 
@@ -28,7 +28,7 @@ for entity_name in entity_info.keys():
         "nms_entity_type": entity_info[entity_name]["nms_entity_type"],
         "bukkit_craft_class_name": entity_info[entity_name]["bukkit_craft_class_name"],
         "bukkit_entity_type": entity_info[entity_name]["bukkit_entity_type"],
-        "craftbukkit_version": "v1_19_R3"
+        "craftbukkit_version": "v1_20_R1"
     }
 
     dir_name = f"{generated_dir}/{entity_name}"
