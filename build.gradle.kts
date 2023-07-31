@@ -15,8 +15,7 @@ bukkit {
 allprojects {
     apply(plugin = "kotlin")
 
-    group = "ru.melonhell"
-    version = "1.0.2"
+    version = "1.0.3"
 
     repositories {
         mavenCentral()

@@ -17,6 +17,10 @@ class NmsEntityLib(
     private val saveService: EntitySaveService,
     private val javaPlugin: JavaPlugin,
 ) {
+    init {
+        INSTANCE = this
+    }
+
     private val map: Map<EntityType, NelEntityFactory> =
         nelEntityFactoryList.stream().collect(Collectors.toMap({ it.entityType }, { it }))
 
@@ -33,5 +37,10 @@ class NmsEntityLib(
         val entity = nelEntityFactory.spawn(world, location.toVector(), reason, function)
         saveService.onCreate(plugin ?: javaPlugin, entity)
         return entity
+    }
+
+    companion object {
+        lateinit var INSTANCE: NmsEntityLib
+            private set
     }
 }

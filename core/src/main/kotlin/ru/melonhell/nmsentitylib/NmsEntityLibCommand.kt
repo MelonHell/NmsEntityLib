@@ -8,6 +8,7 @@ import org.bukkit.Bukkit
 import org.bukkit.entity.ArmorStand
 import org.bukkit.entity.Entity
 import org.bukkit.entity.EntityType
+import org.bukkit.entity.Horse
 import org.bukkit.entity.Player
 import org.bukkit.plugin.java.JavaPlugin
 import org.springframework.stereotype.Component
@@ -66,6 +67,11 @@ class NmsEntityLibCommand(
         (last as ArmorStand).setArms(true)
     }
 
+    @Subcommand("smallhorse")
+    fun smallhorse(player: Player) {
+        (last as Horse).setBaby()
+    }
+
     @Subcommand("sit")
     fun sit(player: Player) {
         last!!.addPassenger(player)
@@ -79,5 +85,10 @@ class NmsEntityLibCommand(
     @Subcommand("testupdint")
     fun testupdint(player: Player) {
         testShit.printUpdateIntervals(player)
+    }
+
+    @Subcommand("offset")
+    fun offset(player: Player) {
+        player.sendMessage((last as NelEntityBukkit).passengersOffset.toString())
     }
 }
